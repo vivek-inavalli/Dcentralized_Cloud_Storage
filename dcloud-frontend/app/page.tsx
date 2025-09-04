@@ -185,7 +185,7 @@ export default function HomePage() {
         )}
 
         {/* Debug Information (remove in production) */}
-        {process.env.NODE_ENV === "development" && (
+        {/* {process.env.NODE_ENV === "development" && (
           <div className="bg-gray-100 rounded-lg p-4 mt-6">
             <h3 className="font-semibold mb-2">Debug Info:</h3>
             <pre className="text-xs text-gray-700">
@@ -202,7 +202,7 @@ export default function HomePage() {
               )}
             </pre>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
