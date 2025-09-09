@@ -81,6 +81,19 @@ export default function BrowsePage() {
     return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
   };
 
+  const filterPublic = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = e.target.value.trim().toLowerCase();
+
+    if (searchTerm.length === 0) {
+      setPublicFiles(publicFiles); // Reset to full original list
+    } else {
+      const filteredList = publicFiles.filter((item: FileData) =>
+        item.fileName.toLowerCase().includes(searchTerm)
+      );
+      setPublicFiles(filteredList);
+    }
+  };
+
   // Don't render until mounted (prevents hydration errors)
   if (!mounted) {
     return (
@@ -131,7 +144,7 @@ export default function BrowsePage() {
               Refresh
             </button>
           </div>
-
+          <input onChange={(e) => filterPublic(e)} />
           {loading ? (
             <div className="text-center py-8">
               <p>Loading public files...</p>
