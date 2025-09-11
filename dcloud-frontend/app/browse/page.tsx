@@ -85,13 +85,12 @@ export default function BrowsePage() {
     const searchTerm = e.target.value.trim().toLowerCase();
 
     if (searchTerm.length === 0) {
-      setPublicFiles(publicFiles); // Reset to full original list
-    } else {
-      const filteredList = publicFiles.filter((item: FileData) =>
-        item.fileName.toLowerCase().includes(searchTerm)
-      );
-      setPublicFiles(filteredList);
+      setPublicFiles(publicFiles);
     }
+    const filteredList = publicFiles.filter((item: FileData) =>
+      item.fileName.toLowerCase().includes(searchTerm)
+    );
+    setPublicFiles(filteredList);
   };
 
   // Don't render until mounted (prevents hydration errors)
